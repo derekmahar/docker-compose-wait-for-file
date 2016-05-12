@@ -1,0 +1,12 @@
+version: "2"
+services:
+  create:
+    image: opes/ubuntu-create-file
+    volumes:
+      - /wait
+
+  wait:
+    image: opes/ubuntu-wait-for-file
+    volumes_from:
+      - create
+    entrypoint: /wait-for-file.sh /wait/done
