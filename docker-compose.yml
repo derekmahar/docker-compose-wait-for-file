@@ -1,11 +1,13 @@
 version: "2"
 services:
   create:
+    build: ubuntu-create-file
     image: opes/ubuntu-create-file
     volumes:
       - /wait
 
   wait:
+    build: ubuntu-wait-for-file
     image: opes/ubuntu-wait-for-file
     volumes_from:
       - create
